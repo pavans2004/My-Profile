@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        div{
+            text-align: center;
+            color:white;
+            border: 10px;
+            text-shadow: 10px;
+            border: 3px solid;
+           
+        }
+        label{
+            text-decoration: dotted;
+        }
+        body{
+            background-image:url(img/images\ \(1\).jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 900px;
+            height: 900px;
+        
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>PAVAN COFFEE ADDA</h1>
+    <label for="">
+    <input type="radio" name="drink" id="tea" value="tea">Tea
+    <label for="">
+    <input type="radio" name="drink" id="coffee" value="coffee">coffee
+    <label for="">
+    <input type="radio" name="drink" id="milk" value="milk">milk
+    <label for="">
+    <input type="radio" name="drink" id="badammilk" value="badammilk">badammilk
+    </label>
+
+
+ <br> <button onclick="Add()">Add</button>
+<button onclick="Total()">Total</button> </h1> 
+
+<p> teacount :<span id="teacount">0</span></p>
+<p> coffeecount :<span id="coffeecount">0</span></p>
+<p> milkcount :<span id="milkcount">0</span></p>
+<p> BadamMilkcount :<span id="badammilkcount">0</span></p>
+<p id="bill"></p>
+
+
+<script>
+    let teacount = 0;
+    let coffeecount = 0;
+    let milkcouont = 0;
+    let badammilkcount = 0;
+
+    let tearate = 10;
+    let coffeerate = 12;
+    let milkrate = 10;
+    let badammilkrate = 15;
+
+    function Add(){
+     const selecteddrink= document.querySelector("input[name = 'drink']:checked");
+     if(selecteddrink){
+        const drinktype = selecteddrink.id;
+        if(drinktype == "tea"){
+            teacount++;
+            document.getElementById('teacount').textContent = teacount;
+        } if(drinktype == 'coffee'){
+            coffeecount++;
+            document.getElementById('coffeecount').textContent = coffeecount;
+        } if(drinktype == 'milk'){
+            milkcount++;
+            document.getElementById('milkcount').textContent = milkcount;
+        } if(drinktype == 'badammilk'){
+            badammilkcount++;
+            document.getElementById('badammilkcount').textContent = badammilkcount;
+        }
+     }
+    }
+
+    function Total(){
+        let Total = (teacount *tearate)+(coffeecount *coffeerate)+(milkcouont *milkrate)+(badammilkcount *badammilkrate)
+         document.getElementById('bill').textContent= "Total :"+"₹"+Total   
+   }
+
+</script>
+</div>
+  
+</body>
+</html>
